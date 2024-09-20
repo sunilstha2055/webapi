@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Change Text on Button Click</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .container {
+        max-width: 300px;
+        margin: 0 auto;
+        background: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+      #textDiv {
+        margin-bottom: 20px;
+        font-size: 18px;
+        color: #333;
+      }
+
+      button {
+        width: 100%;
+        padding: 10px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="textDiv">This is the original text.</div>
+      <button id="changeTextButton">Change Text</button>
+    </div>
+
+    <script>
+      document
+        .getElementById("changeTextButton")
+        .addEventListener("click", function () {
+          document.getElementById("textDiv").innerText =
+            "The text has been changed!";
+        });
+    </script>
+  </body>
+</html>

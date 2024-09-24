@@ -1,0 +1,43 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.article-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 50px;
+    height: 100%; 
+}
+
+.article {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    border: 1px solid #000;
+    border-radius: 20px;
+    text-align: center;
+    padding: 20px;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #0000ff;
+    color: #fff;
+    border: 1px solid #0000ff;
+    border-radius: 20px;
+}
+button:hover{
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #000;
+}

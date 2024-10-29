@@ -1,4 +1,6 @@
-function endpoint() {
-    return "Hello from endpoint";
+class Endpoint {
+    getMessage() {
+        return "Hello from endpoint";
+    }
 }
-module.exports = endpoint;
+module.exports = Endpoint;

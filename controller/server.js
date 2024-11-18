@@ -1,18 +1,28 @@
-const endpoint = require('./endpoints/endpoint');
-const DataClass = require('./endpoints/dataclass');
+const http = require('http');
+const cors = require('cors');
 
-class Server {
-    constructor() {
-        this.endpoint = new endpoint();
-        this.dataClass = new DataClass();
-    }
+// Sample data to return as JSON
+const data = {
+  message: 'Hello from Node.js!',
+  items: [1, 2, 3, 4, 5]
+};
 
-    main() {
-        console.log("hello world");
-        console.log(this.endpoint.getMessage());
-        this.dataClass.test();
-    }
-}
+const server = http.createServer((req, res) => {
+  // Handle CORS for Angular frontend
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Content-Type', 'application/json');
 
-const server = new Server();
-server.main();
+  // Define routes
+  if (req.method === 'GET' && req.url === '/api/data') {
+    res.writeHead(200);
+    res.end(JSON.stringify(data));
+  } else {
+    res.writeHead(404);
+    res.end(JSON.stringify({ message: 'Route not found' }));
+  }
+});
+
+const PORT = 3000;
+server.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
+});

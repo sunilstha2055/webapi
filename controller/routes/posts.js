@@ -5,13 +5,64 @@ const path = require('path');
 const router = express.Router();
 const filePath = path.join(__dirname, '../data/posts.json');
 
-// Get all posts
+/**
+ * @swagger
+ * /api/posts:
+ *   get:
+ *     summary: Retrieve all posts
+ *     responses:
+ *       200:
+ *         description: A list of posts.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   id:
+ *                     type: integer
+ *                   title:
+ *                     type: string
+ *                   content:
+ *                     type: string
+ */
 router.get('/', (req, res) => {
   const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
   res.json(data);
 });
 
-// Add a new post
+/**
+ * @swagger
+ * /api/posts:
+ *   post:
+ *     summary: Create a new post
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               title:
+ *                 type: string
+ *               content:
+ *                 type: string
+ *     responses:
+ *       201:
+ *         description: Post created successfully.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 id:
+ *                   type: integer
+ *                 title:
+ *                   type: string
+ *                 content:
+ *                   type: string
+ */
 router.post('/', (req, res) => {
   const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
   const newPost = {
